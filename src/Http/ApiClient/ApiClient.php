@@ -112,7 +112,7 @@ class ApiClient implements ApiClientInterface
         }
 
         // Always request application/json
-        $headers = ['Accept' => 'application/json'];
+        $headers = ['Content-Type' => 'application/json','Accept' => 'application/json'];
 
         if (!empty($body)) {
             $body = json_encode($body);
