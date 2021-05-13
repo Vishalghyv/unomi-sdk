@@ -18,7 +18,7 @@ class EventsSearchRepository extends RepositoryBase
      * @return EventsSearchView[]
      * @throws Exception
      */
-    public function listEvents($eventType)
+    public function listEventsUsingEventType($eventType)
     {
         if (empty($eventType)) {
             return null;
@@ -33,6 +33,46 @@ class EventsSearchRepository extends RepositoryBase
                     'propertyName' => 'eventType',
                     'comparisonOperator' => 'equals',
                     'propertyValue' => $eventType
+                ],
+            ],
+        ];
+
+        $request = new EventsSearchRequest($search);
+
+        return $this->handleRequest(
+            $request,
+            EventsSearchView::class
+        );
+    }
+
+    /**
+     * @param string $profileId
+     * @return EventsSearchView[]
+     * @throws Exception
+     */
+    public function listEventsUsingProfileId($profileId)
+    {
+        if (empty($profileId)) {
+            return null;
+        }
+
+        $profileId = explode("-", $profileId);
+
+        if (empty($profileId)) {
+            return null;
+        }
+
+        $profileId = $profileId[0];
+
+        $search = (object) [
+            'offset' => 0,
+            'limit' => 20,
+            'condition' => (object) [
+                'type' => 'eventPropertyCondition',
+                'parameterValues' => (object) [
+                    'propertyName' => 'profileId',
+                    'comparisonOperator' => 'equals',
+                    'propertyValue' => $profileId
                 ],
             ],
         ];
