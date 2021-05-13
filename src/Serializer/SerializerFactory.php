@@ -28,6 +28,7 @@ class SerializerFactory
                 new FieldDescription\Model\Segment\SegmentListViewFieldDescription(),
                 new FieldDescription\Model\Rules\RulesListViewFieldDescription(),
                 new FieldDescription\Model\Profile\ProfileSearchFieldDescription(),
+                new FieldDescription\Model\Events\EventsSearchFieldDescription(),
             ]
         );
 
