@@ -3,7 +3,9 @@
 namespace Dropsolid\UnomiSdkPhp\Repository;
 
 use Dropsolid\UnomiSdkPhp\Model\Rules\RulesListView;
+use Dropsolid\UnomiSdkPhp\Model\Rules\RulesStatisticsView;
 use Dropsolid\UnomiSdkPhp\Request\Rules\RulesListRequest;
+use Dropsolid\UnomiSdkPhp\Request\Rules\RulesStatisticsRequest;
 use Http\Client\Exception;
 
 /**
@@ -25,6 +27,21 @@ class RulesRepository extends RepositoryBase
         return $this->handleRequest(
             $request,
             RulesListView::class . '[]'
+        );
+    }
+
+    /**
+     *
+     * @return RulesStatisticsView[]
+     * @throws Exception
+     */
+    public function listRulesStatistics()
+    {
+        $request = new RulesStatisticsRequest();
+
+        return $this->handleRequest(
+            $request,
+            RulesStatisticsView::class . '[]'
         );
     }
 }

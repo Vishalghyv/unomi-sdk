@@ -5,7 +5,7 @@ namespace Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\Model\Rules;
 use Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\FieldDescriptionBase;
 
 /**
- * Class RulesFieldDescriptionBase
+ * Class RulesListViewFieldDescriptionBase
  *
  * @package Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\Model\Rules
  */

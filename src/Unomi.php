@@ -5,7 +5,7 @@ namespace Dropsolid\UnomiSdkPhp;
 use Dropsolid\UnomiSdkPhp\Http\ApiClient\ApiClientInterface;
 use Dropsolid\UnomiSdkPhp\Repository\SegmentRepository;
 use Dropsolid\UnomiSdkPhp\Repository\RulesRepository;
-use Dropsolid\UnomiSdkPhp\Repository\ProfileSearchRepository;
+use Dropsolid\UnomiSdkPhp\Repository\ProfileRepository;
 use Dropsolid\UnomiSdkPhp\Repository\EventsSearchRepository;
 use Dropsolid\UnomiSdkPhp\Repository\DefinitionsRepository;
 use Dropsolid\UnomiSdkPhp\Serializer\SerializerFactory;
@@ -71,11 +71,11 @@ class Unomi
     }
 
     /**
-     * @return ProfileSearchRepository
+     * @return ProfileRepository
      */
     public function profile()
     {
-        return new ProfileSearchRepository($this->apiClient, $this->serializer);
+        return new ProfileRepository($this->apiClient, $this->serializer);
     }
 
     /**
