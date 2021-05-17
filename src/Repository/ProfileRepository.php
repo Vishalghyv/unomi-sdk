@@ -30,10 +30,8 @@ class ProfileRepository extends RepositoryBase
         }
 
         $request = new ProfileInfoRequest($id);
-        $response = $this->apiClient->handle($request);
-        $responseBody = $response->getBody()->getContents();
 
-        return json_decode($responseBody);
+        return $this->handleRawRequest($request);
     }
 
     /**

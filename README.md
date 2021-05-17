@@ -62,6 +62,27 @@ foreach ($segments as $segmentMetadata) {
 }
 
 ```
+### Current requests available that can be made from Unomi class using the repository classes
+
+```
+    $unomi->segments()->getSegments($id); // Get segemnt as per id
+    $unomi->segments()->listSegments(); // List all available segments
+
+    $unomi->rules()->listRules(); // List all available rules
+    $unomi->rules->listRulesStatistics(); // List statistics about the rules
+
+    $unomi->profile()->getProfile($id); // Get profile as per id
+    $unomi->profile()->getProfileSegments($id); // Get profile segments as per id
+    $unomi->profile()->listProfile(); // List all available profiles
+    $unomi->profile()->listProperties(); // List properties of profiles
+
+    $unomi->events()->listEventsUsingEventType($eventType); // Get events as per event type
+    $unomi->events()->listEventsUsingProfileId($profileId); // Get events as per profile id
+
+    $unomi->definitions()->listActions(); // Get all available action types
+    $unomi->definitions()->listConditions(); // Get all available conditions types
+    $unomi->definitions()->listValues(); // Get all available values types
+```
 
 ### Authentication
 
