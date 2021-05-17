@@ -23,7 +23,7 @@ class ProfileRepository extends RepositoryBase
      * @return array
      * @throws Exception
      */
-    public function getProfile($id)
+    public function getProfile(string $id)
     {
         if (empty($id)) {
           return null;
@@ -42,31 +42,30 @@ class ProfileRepository extends RepositoryBase
      * @return array
      * @throws Exception
      */
-    public function getProfileSegments($id)
+    public function getProfileSegments(string $id)
     {
         if (empty($id)) {
           return null;
         }
 
         $request = new ProfileSegmentsRequest($id);
-        $response = $this->apiClient->handle($request);
-        $responseBody = $response->getBody()->getContents();
 
-        return json_decode($responseBody);
+        return $this->handleRawRequest($request);
     }
 
     /**
+     * @param int $offset
+     * @param int $limit
      *
      * @return ProfileSearchView[]
      * @throws Exception
      */
-    public function listProfile()
+    public function listProfile(int $offset = 0, int $limit = 10)
     {
       $search = (object) [
         'text' => 'unomi',
-        'offset' => 0,
-        'limit' => 10,
-        'offset' => 0,
+        'offset' => $offset,
+        'limit' => $limit,
         'condition' => (object) [
           'type' => 'profilePropertyCondition',
           'parameterValues' => (object) [
@@ -87,16 +86,13 @@ class ProfileRepository extends RepositoryBase
 
     /**
      *
-     * @return array
+     * @return object
      * @throws Exception
      */
     public function listProperties()
     {
         $request = new ProfilePropertiesRequest();
 
-        $response = $this->apiClient->handle($request);
-        $responseBody = $response->getBody()->getContents();
-
-        return json_decode($responseBody);
+        return $this->handleRawRequest($request);
     }
 }

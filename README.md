@@ -144,9 +144,6 @@ $apiClient = new ApiClient(
 );
 ```
 
-###  Known issues
-Only the listing of segments and the segment details are implemented so far.
-
 [unomi-docs]: https://unomi.apache.org/rest-api-doc/index.html
 [php-http-homepage]: http://docs.php-http.org/en/latest/
 [league-oauth-homepage]: http://oauth2-client.thephpleague.com/

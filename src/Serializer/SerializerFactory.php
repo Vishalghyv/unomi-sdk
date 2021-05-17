@@ -29,7 +29,7 @@ class SerializerFactory
                 new FieldDescription\Model\Rules\RulesListViewFieldDescription(),
                 new FieldDescription\Model\Rules\RulesStatisticsViewFieldDescription(),
                 new FieldDescription\Model\Profile\ProfileSearchFieldDescription(),
-                new FieldDescription\Model\Events\EventsSearchFieldDescription(),
+                new FieldDescription\Model\Events\EventsFieldDescription(),
             ]
         );
 

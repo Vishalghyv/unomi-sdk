@@ -15,7 +15,7 @@ use Http\Client\Exception;
 class DefinitionsRepository extends RepositoryBase
 {
     /**
-     * @return array
+     * @return object
      * @throws Exception
      */
     public function listActions()
@@ -23,14 +23,11 @@ class DefinitionsRepository extends RepositoryBase
 
         $request = new ActionsRequest();
 
-        $response = $this->apiClient->handle($request);
-        $responseBody = $response->getBody()->getContents();
-
-        return json_decode($responseBody);
+        return $this->handleRawRequest($request);
     }
 
     /**
-     * @return array
+     * @return object
      * @throws Exception
      */
     public function listConditions()
@@ -38,14 +35,11 @@ class DefinitionsRepository extends RepositoryBase
 
         $request = new ConditionsRequest();
 
-        $response = $this->apiClient->handle($request);
-        $responseBody = $response->getBody()->getContents();
-
-        return json_decode($responseBody);
+        return $this->handleRawRequest($request);
     }
 
     /**
-     * @return array
+     * @return object
      * @throws Exception
      */
     public function listValues()
@@ -53,9 +47,6 @@ class DefinitionsRepository extends RepositoryBase
 
         $request = new ValuesRequest();
 
-        $response = $this->apiClient->handle($request);
-        $responseBody = $response->getBody()->getContents();
-
-        return json_decode($responseBody);
+        return $this->handleRawRequest($request);
     }
 }

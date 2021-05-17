@@ -12,16 +12,16 @@ use Dropsolid\UnomiSdkPhp\Request\Attributes\Sort\SortInterface;
 use Dropsolid\UnomiSdkPhp\Request\Attributes\Sort\SortTrait;
 
 /**
- * Class EventsSearchRequest
+ * Class EventsRequest
  *
  * @package Dropsolid\UnomiSdkPhp\Request\Events
  */
-class EventsSearchRequest extends PostRequest implements OffsetInterface, SizeInterface, SortInterface
+class EventsRequest extends PostRequest implements OffsetInterface, SizeInterface, SortInterface
 {
     use MultipleMethodsTrait, OffsetTrait, SizeTrait, SortTrait;
 
     /**
-     * EventsSearchRequest constructor.
+     * EventsRequest constructor.
      *
      * @param array $body
      */

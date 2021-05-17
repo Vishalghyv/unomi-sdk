@@ -2,21 +2,21 @@
 
 namespace Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\Model\Events;
 
-use Dropsolid\UnomiSdkPhp\Model\Events\EventsSearchView;
+use Dropsolid\UnomiSdkPhp\Model\Events\EventsView;
 
 /**
  * Class EventsFieldDescription
  *
  * @package Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\Model\Events
  */
-class EventsSearchFieldDescription extends EventsSearchFieldDescriptionBase
+class EventsFieldDescription extends EventsFieldDescriptionBase
 {
     /**
      * @inheritdoc
      */
     public function getTargetClass()
     {
-        return EventsSearchView::class;
+        return EventsView::class;
     }
 
     /**

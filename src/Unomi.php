@@ -6,7 +6,7 @@ use Dropsolid\UnomiSdkPhp\Http\ApiClient\ApiClientInterface;
 use Dropsolid\UnomiSdkPhp\Repository\SegmentRepository;
 use Dropsolid\UnomiSdkPhp\Repository\RulesRepository;
 use Dropsolid\UnomiSdkPhp\Repository\ProfileRepository;
-use Dropsolid\UnomiSdkPhp\Repository\EventsSearchRepository;
+use Dropsolid\UnomiSdkPhp\Repository\EventsRepository;
 use Dropsolid\UnomiSdkPhp\Repository\DefinitionsRepository;
 use Dropsolid\UnomiSdkPhp\Serializer\SerializerFactory;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
@@ -79,11 +79,11 @@ class Unomi
     }
 
     /**
-     * @return EventsSearchRepository
+     * @return EventsRepository
      */
     public function events()
     {
-        return new EventsSearchRepository($this->apiClient, $this->serializer);
+        return new EventsRepository($this->apiClient, $this->serializer);
     }
 
     /**

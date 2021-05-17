@@ -2,31 +2,34 @@
 
 namespace Dropsolid\UnomiSdkPhp\Repository;
 
-use Dropsolid\UnomiSdkPhp\Model\Events\EventsSearchView;
-use Dropsolid\UnomiSdkPhp\Request\Events\EventsSearchRequest;
+use Dropsolid\UnomiSdkPhp\Model\Events\EventsView;
+use Dropsolid\UnomiSdkPhp\Request\Events\EventsRequest;
 use Http\Client\Exception;
 
 /**
- * Class EventsSearchRepository
+ * Class EventsRepository
  *
  * @package Dropsolid\UnomiSdkPhp\Repository
  */
-class EventsSearchRepository extends RepositoryBase
+class EventsRepository extends RepositoryBase
 {
     /**
      * @param string $eventType
-     * @return EventsSearchView[]
+     * @param int $offset
+     * @param int $limit
+     *
+     * @return EventsView[]
      * @throws Exception
      */
-    public function listEventsUsingEventType($eventType)
+    public function listEventsUsingEventType(string $eventType, int $offset = 0, int $limit = 20)
     {
         if (empty($eventType)) {
             return null;
         }
 
         $search = (object) [
-            'offset' => 0,
-            'limit' => 20,
+            'offset' => $offset,
+            'limit' => $limit,
             'condition' => (object) [
                 'type' => 'eventPropertyCondition',
                 'parameterValues' => (object) [
@@ -37,20 +40,23 @@ class EventsSearchRepository extends RepositoryBase
             ],
         ];
 
-        $request = new EventsSearchRequest($search);
+        $request = new EventsRequest($search);
 
         return $this->handleRequest(
             $request,
-            EventsSearchView::class
+            EventsView::class
         );
     }
 
     /**
      * @param string $profileId
-     * @return EventsSearchView[]
+     * @param int $offset
+     * @param int $limit
+     *
+     * @return EventsView[]
      * @throws Exception
      */
-    public function listEventsUsingProfileId($profileId)
+    public function listEventsUsingProfileId(string $profileId, int $offset = 0, int $limit = 20)
     {
         if (empty($profileId)) {
             return null;
@@ -65,8 +71,8 @@ class EventsSearchRepository extends RepositoryBase
         $profileId = $profileId[0];
 
         $search = (object) [
-            'offset' => 0,
-            'limit' => 20,
+            'offset' => $offset,
+            'limit' => $limit,
             'condition' => (object) [
                 'type' => 'eventPropertyCondition',
                 'parameterValues' => (object) [
@@ -77,11 +83,11 @@ class EventsSearchRepository extends RepositoryBase
             ],
         ];
 
-        $request = new EventsSearchRequest($search);
+        $request = new EventsRequest($search);
 
         return $this->handleRequest(
             $request,
-            EventsSearchView::class
+            EventsView::class
         );
     }
 }

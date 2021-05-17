@@ -5,11 +5,11 @@ namespace Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\Model\Events;
 use Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\FieldDescriptionBase;
 
 /**
- * Class EventsSearchFieldDescriptionBase
+ * Class EventsFieldDescriptionBase
  *
  * @package Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\Model\Events
  */
-abstract class EventsSearchFieldDescriptionBase extends FieldDescriptionBase
+abstract class EventsFieldDescriptionBase extends FieldDescriptionBase
 {
     /**
      * @inheritdoc

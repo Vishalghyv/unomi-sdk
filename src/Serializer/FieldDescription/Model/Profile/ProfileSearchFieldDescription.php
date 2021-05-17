@@ -5,7 +5,7 @@ namespace Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\Model\Profile;
 use Dropsolid\UnomiSdkPhp\Model\Profile\ProfileSearchView;
 
 /**
- * Class ProfileFieldDescription
+ * Class ProfileSearchFieldDescription
  *
  * @package Dropsolid\UnomiSdkPhp\Serializer\FieldDescription\Model\Profile
  */

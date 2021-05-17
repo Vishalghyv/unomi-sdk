@@ -3,11 +3,11 @@
 namespace Dropsolid\UnomiSdkPhp\Model\Events;
 
 /**
- * Class EventsSearchView
+ * Class EventsView
  *
  * @package Dropsolid\UnomiSdkPhp\Model\Events
  */
-class EventsSearchView
+class EventsView
 {
     /**
      * @var int

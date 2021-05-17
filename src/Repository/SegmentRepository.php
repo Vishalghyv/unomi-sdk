@@ -21,7 +21,7 @@ class SegmentRepository extends RepositoryBase
      * @return Segment
      * @throws Exception
      */
-    public function getSegment($id)
+    public function getSegment(string $id)
     {
         $request = new SegmentInfoRequest($id);
         return $this->handleRequest(
