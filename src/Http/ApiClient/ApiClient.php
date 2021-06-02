@@ -2,6 +2,7 @@
 
 namespace Dropsolid\UnomiSdkPhp\Http\ApiClient;
 
+use Dropsolid\UnomiSdkPhp\Request\Attributes\Cookie\CookieInterface;
 use Dropsolid\UnomiSdkPhp\Request\Attributes\Offset\OffsetInterface;
 use Dropsolid\UnomiSdkPhp\Request\Attributes\Size\SizeInterface;
 use Dropsolid\UnomiSdkPhp\Request\Attributes\Sort\SortInterface;
@@ -112,7 +113,14 @@ class ApiClient implements ApiClientInterface
         }
 
         // Always request application/json
-        $headers = ['Accept' => 'application/json'];
+        $headers = ['Content-Type' => 'application/json', 'Accept' => 'application/json'];
+
+        if ($request instanceof CookieInterface) {
+            $cookie = $request->getCookie();
+            if (!empty($cookie)) {
+                $headers['context-profile-id'] = $cookie;
+            }
+        }
 
         if (!empty($body)) {
             $body = json_encode($body);

@@ -4,6 +4,7 @@ namespace Dropsolid\UnomiSdkPhp;
 
 use Dropsolid\UnomiSdkPhp\Http\ApiClient\ApiClientInterface;
 use Dropsolid\UnomiSdkPhp\Repository\SegmentRepository;
+use Dropsolid\UnomiSdkPhp\Repository\ProfileRepository;
 use Dropsolid\UnomiSdkPhp\Serializer\SerializerFactory;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -56,5 +57,13 @@ class Unomi
     public function segments()
     {
         return new SegmentRepository($this->apiClient, $this->serializer);
+    }
+
+    /**
+     * @return ProfileRepository
+     */
+    public function profile()
+    {
+        return new ProfileRepository($this->apiClient, $this->serializer);
     }
 }

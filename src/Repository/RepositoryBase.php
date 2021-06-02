@@ -84,4 +84,18 @@ abstract class RepositoryBase
     {
         return $this->serializer->deserialize($data, $type, 'json');
     }
+
+    /**
+     * @param RequestInterface $request
+     *
+     * @return object
+     * @throws Exception
+     */
+    protected function handleRawRequest(RequestInterface $request)
+    {
+        $response = $this->apiClient->handle($request);
+        $responseBody = $response->getBody()->getContents();
+        return json_decode($responseBody);
+    }
+
 }
