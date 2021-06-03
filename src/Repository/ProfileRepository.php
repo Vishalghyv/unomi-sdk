@@ -24,13 +24,12 @@ class ProfileRepository extends RepositoryBase
         'source' =>  [
           'itemId' => 'pageView',
           'itemType' => 'pageView',
-          'scope' => 'currentProfile'
+          'scope' => 'example'
         ],
         'requiredProfileProperties' => ['*'],
         'requiredSessionProperties' => ['*'],
         'requireSegments' => true,
       ];
-      // $serach['cookie'] = $profileId;
 
       $request = new ProfileCurrentRequest($search);
       $request->setCookie($profileId);

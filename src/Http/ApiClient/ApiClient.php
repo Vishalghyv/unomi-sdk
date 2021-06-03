@@ -118,7 +118,7 @@ class ApiClient implements ApiClientInterface
         if ($request instanceof CookieInterface) {
             $cookie = $request->getCookie();
             if (!empty($cookie)) {
-                $headers['context-profile-id'] = $cookie;
+                $headers['Cookie'] = 'context-profile-id=' . $cookie;
             }
         }
 

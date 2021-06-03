@@ -32,6 +32,9 @@ class ProfileCurrentRequest extends PostRequest implements CookieInterface
      */
     public function getEndpoint()
     {
+        if (empty($this->getCookie())) {
+            return 'context.json?sessionId';
+        }
         return 'context.json';
     }
 }
